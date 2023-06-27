@@ -28,7 +28,6 @@ export default class CustomerSessionService {
 
     // Create session
     async createSession(req: any): Promise<any> {
-        console.log(`Creating Integration API request. Query Params: ${req.query.test}`)
         const integrationRequest = new TalonOne.IntegrationRequest(customerSession)
 
         console.log('Sending example request to Integration API.')
