@@ -17,20 +17,6 @@ const customerSession = TalonOne.NewCustomerSessionV2.constructFromObject({
             quantity: 1,
             price: 2,
             category: 'beverages'
-        },
-        {
-            name: 'Queen Döner',
-            sku: 'qd-100',
-            quantity: 1,
-            price: 2.50,
-            category: 'pizzas'
-        },
-        {
-            name: 'Club Mate 330ml',
-            sku: 'cm-33',
-            quantity: 1,
-            price: 1.80,
-            category: 'beverages'
         }
     ],
     couponCodes: [

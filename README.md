@@ -43,3 +43,7 @@ Finally, you need to build the module:
 `npm run build`
 
 *Ref:* [Talon One Installation Docs](https://github.com/mbryantDB/talonOne-sandbox.git)
+
+Result in Campaign Manager:
+
+![SessionCreation_Screenshot.png](./assets/SessionCreation_Screenshot.png)
