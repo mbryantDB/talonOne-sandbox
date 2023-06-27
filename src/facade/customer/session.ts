@@ -1,6 +1,6 @@
-import CustomerSessionService from "../../service/customer/session";
+import CustomerSessionService from "../../service/customer/session"
 
-const sessionService = new CustomerSessionService();
+const sessionService = new CustomerSessionService()
 
 export default class CustomerSessionFacade {
 

@@ -1,4 +1,4 @@
-import CustomerSessionFacade from "../../facade/customer/session";
+import CustomerSessionFacade from "../../facade/customer/session"
 
 const sessionFacade = new CustomerSessionFacade()
 export const createSession = (async (req: any, res: any): Promise<any> => {

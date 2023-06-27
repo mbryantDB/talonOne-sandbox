@@ -2,6 +2,10 @@ const { integrationApi } = require("../../client/integration")
 const TalonOne = require("talon_one")
 const { getApplicationName } = require("../../util/getApplicationInfo")
 
+
+// Creates the web request through an object.
+//
+// API Ref: https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2
 const customerSession = TalonOne.NewCustomerSessionV2.constructFromObject({
     profileId: 'example_prof_id',
     cartItems: [
@@ -23,7 +27,7 @@ const customerSession = TalonOne.NewCustomerSessionV2.constructFromObject({
     couponCodes: [
         'Cool-Summer!'
     ]
-});
+})
 
 export default class CustomerSessionService {
 
