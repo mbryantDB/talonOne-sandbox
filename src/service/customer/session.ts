@@ -1,25 +1,15 @@
-import { integrationApi } from "../../client/integration";
-
-const TalonOne = require("talon_one")
+import { integrationApi } from "../../client/integration"
+import {handleData} from "../../util/handleData";
 
 export default class CustomerSessionService {
 
     // Create session
-    async createSession(integrationId: string, customerSession: any): Promise<any> {
-        const integrationRequest = new TalonOne.IntegrationRequest(customerSession)
+    async createOrUpdateSession(integrationId: string, customerSession: any): Promise<any> {
 
         console.log('Creating customer session with Integration API')
-        return await integrationApi
-            .updateCustomerSessionV2(integrationId, integrationRequest)
-            .then(
-                (data: any) => {
-                    return JSON.stringify(data, null, 2)
-                }
-            )
-            .catch(
-                (error: Error) => {
-                    return error
-                }
-            )
+
+        return integrationApi
+            .updateCustomerSessionV2(integrationId, customerSession)
+            .then(handleData)
     }
 }
