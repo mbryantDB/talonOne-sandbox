@@ -1,5 +1,4 @@
-import TalonOne from "talon_one"
-
+const TalonOne = require("talon_one")
 const { baseClient } = require("../index")
 
 const management_key = baseClient.authentications["management_key"]
