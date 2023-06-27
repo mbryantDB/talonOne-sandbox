@@ -1,5 +1,6 @@
 const { integrationApi } = require("../../client/integration")
 const TalonOne = require("talon_one")
+const { getApplicationName } = require("../../util/getApplicationInfo")
 
 const customerSession = TalonOne.NewCustomerSessionV2.constructFromObject({
     profileId: 'example_prof_id',
@@ -30,9 +31,9 @@ export default class CustomerSessionService {
     async createSession(req: any): Promise<any> {
         const integrationRequest = new TalonOne.IntegrationRequest(customerSession)
 
-        console.log('Sending example request to Integration API.')
+        console.log('Creating customer session with Integration API')
         return await integrationApi
-            .updateCustomerSessionV2("example_integration_v2_id", integrationRequest)
+            .updateCustomerSessionV2(getApplicationName(), integrationRequest)
             .then(
                 (data: any) => {
                     return JSON.stringify(data, null, 2)
