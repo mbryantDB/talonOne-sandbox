@@ -11,6 +11,7 @@ export default class CustomerSessionService {
         return integrationApi
             .updateCustomerSessionV2(integrationId, customerSession)
             .then(handleData)
+            .catch((err: Error) => console.error(err))
     }
 
     async reopenCustomerSession(customerSessionId: string): Promise<any> {

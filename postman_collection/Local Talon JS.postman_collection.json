@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "fa667e11-66e9-480b-a216-9100808c09af",
+		"name": "Local Talon JS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4445842"
+	},
+	"item": [
+		{
+			"name": "Create or Update Customer Session",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customerSession\": {\n        \"profileId\": \"{{customerId}}\",\n        \"state\": \"open\",\n        \"cartItems\": [\n            {\n                \"name\": \"Döner King\",\n                \"sku\": \"kd-100\",\n                \"quantity\": 1,\n                \"price\": 100.00,\n                \"category\": \"pizzas\"\n            },\n            {\n                \"name\": \"Spezi 500ml\",\n                \"sku\": \"sp-50\",\n                \"quantity\": 1,\n                \"price\": 250.50,\n                \"category\": \"beverages\"\n            }\n        ],\n        \"couponCodes\": [\n            \"95XL-KDK8\"\n        ],\n        \"additionalCosts\": {\n            \"shipping_cost\": {\n                \"price\": 10\n            }\n        }\n    },\n    \"responseContent\": [\n        \"customerSession\",\n        \"customerProfile\",\n        \"coupons\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/customer/session/{{integrationId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customer",
+						"session",
+						"{{integrationId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create or Update Customer Profile",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"attributes\": {\n        \"language\": \"en\",\n        \"shippingCountry\": \"GB\"\n    },\n    \"blueBirds\": {\n        \"message\": \"Dey Green\"\n    },\n    \"responseContent\": [\n        \"customerProfile\",\n        \"loyalty\",\n        \"event\",\n        \"awardedGiveaways\",\n        \"ruleFailureReasons\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/customer/profile/{{customerId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customer",
+						"profile",
+						"{{customerId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reopen Session",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/customer/session/{{integrationId}}/reopen",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customer",
+						"session",
+						"{{integrationId}}",
+						"reopen"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
