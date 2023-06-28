@@ -8,6 +8,17 @@ pnpm i
 pnpm dev
 ```
 
+Now that we're installed we'll want to include env variables:
+
+```shell
+cp .env.template .env
+```
+
+Then, fill out the values for each key present in the `.env` files.
+
+#### Postman Collection
+Postman collection and corresponding environment will be available in the root directory of this project
+
 ### Talon One SDK
 
 This is the documentation from the Talon One GitHub site. Reference to code base is provided at the end of the instructions
@@ -43,6 +54,7 @@ Finally, you need to build the module:
 `npm run build`
 
 *Ref:* [Talon One Installation Docs](https://github.com/talon-one/talon_one.js/tree/master#installation)
+
 *Ref:* [Talon.One SDK IntegrationAPI Docs ](https://github.com/talon-one/talon_one.js/blob/master/docs/IntegrationApi.md)
 
 Result in Campaign Manager:
