@@ -21,6 +21,7 @@ const customerProfile = new CustomerProfile()
 // Creating endpoint mapping
 //PUT /customer/session
 app.put('/customer/session', customerSession.createOrUpdateSession)
+app.put('/customer/session/reopen', customerSession.reopenSession)
 
 // PUT /customer/profile
 app.put('/customer/profile', customerProfile.createOrUpdateProfile)

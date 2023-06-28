@@ -12,4 +12,14 @@ export default class CustomerSessionService {
             .updateCustomerSessionV2(integrationId, customerSession)
             .then(handleData)
     }
+
+    async reopenCustomerSession(customerSessionId: string): Promise<any> {
+
+        console.log(`Reopening customerSession: ${customerSessionId}`)
+
+        return integrationApi
+            .reopenCustomerSession(customerSessionId)
+            .then(handleData)
+    }
+
 }
