@@ -1,26 +1,27 @@
 import CustomerProfileFacade from "../../facade/customer/profile"
 import {CustomerProfileRequest, isCustomerProfileRequest} from "../../model/Customer/CustomerProfileRequest"
-import {Request, Response} from "express";
+import {Request, Response, Router} from "express";
 import {reduceBodyToObject} from "../../util/reduceBodyToObject";
 
-
+const customerProfileRouter = Router()
 const profileFacade = new CustomerProfileFacade()
 
-export class CustomerProfile {
-    async createOrUpdateProfile(req: Request, res: Response): Promise<any> {
 
-        let { customerId } = req.params
+customerProfileRouter.put('/:customerId', async (req: Request, res: Response): Promise<any> => {
 
-        // Request validation
-        if(!customerId){ res.status(400).json( {message: 'No param: \'customerId\''}) }
-        if(!isCustomerProfileRequest(req.body)){ res.status(400).json({message: 'Body isn\'t of type: CustomerProfileRequest'}) }
+    let { customerId } = req.params
 
-        // Reduces the body to only fields within CustomerProfileRequest
-        // this is a workaround since types aren't compiled down to JS.
-        let reduced = reduceBodyToObject(new CustomerProfileRequest(), req.body)
+    // Request validation
+    if(!customerId){ res.status(400).json( {message: 'No param: \'customerId\''}) }
+    if(!isCustomerProfileRequest(req.body)){ res.status(400).json({message: 'Body isn\'t of type: CustomerProfileRequest'}) }
 
-        profileFacade.createOrUpdateProfile(customerId, reduced)
-            .then( (data: any) => res.send(data))
-            .catch((err: Error) => res.status(400).send(err))
-    }
-}
+    // Reduces the body to only fields within CustomerProfileRequest
+    // this is a workaround since types aren't compiled down to JS.
+    let reduced = reduceBodyToObject(new CustomerProfileRequest(), req.body)
+
+    profileFacade.createOrUpdateProfile(customerId, reduced)
+        .then( (data: any) => res.send(data))
+        .catch((err: Error) => res.status(400).send(err))
+})
+
+export default customerProfileRouter
