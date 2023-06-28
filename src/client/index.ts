@@ -1,15 +1,10 @@
+import config from '../util/config'
 const TalonOne = require("talon_one")
-
-//Get .env vars
-const env = process.env
-const talonURL = env.TALON_URL
 
 // Configure baseClient
 const baseClient: any = TalonOne.ApiClient.instance
-baseClient.basePath = talonURL
+baseClient.basePath = config.TALON_URL
 
 
 // export
-module.exports = {
-    baseClient
-}
+export default baseClient

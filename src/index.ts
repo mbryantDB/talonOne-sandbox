@@ -1,15 +1,15 @@
 import express, { Express } from 'express'
 import cors from 'cors'
+import config from "./util/config"
 import customerSessionRouter from "./routes/customer/session"
 import customerProfileRouter from "./routes/customer/profile"
-import dotenv from 'dotenv'
 
-
-dotenv.config()
 const app: Express = express()
-const port = process.env.PORT
+const port = config.PORT
 
-const allowedOrigins = ['http://localhost:3000']
+const allowedOrigins = [
+    'http://localhost:3000'
+]
 const options: cors.CorsOptions = {
     origin: allowedOrigins
 }
