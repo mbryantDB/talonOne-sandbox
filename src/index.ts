@@ -16,7 +16,7 @@ const options: cors.CorsOptions = {
 
 app.use(cors(options))
 app.use(express.json())
-// app.use(bodyParser.json())
+
 app.listen(port, () => {
     console.log(`⚡️[server]: Server is running at http://localhost:${port}`)
 })
