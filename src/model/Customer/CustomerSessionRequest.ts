@@ -1,25 +1,25 @@
-export interface CustomerSessionRequest {
-    customerSession: CustomerSession
-    responseContent: string[]
+export class CustomerSessionRequest {
+    customerSession?: CustomerSession = undefined
+    responseContent?: string[] = undefined
 }
 
-export interface CustomerSession {
-    profileId: string
-    evaluableCampaignIds?: string[]
-    couponCodes?: string[]
-    referralCode?: string
-    loyaltyCards?: string[]
-    state?: string
-    cartItems?:  CartItem[]
-    additionalCosts?: object
-    identifiers?: string[]
-    attributes?: object
+export class CustomerSession {
+    profileId?: string = undefined
+    evaluableCampaignIds?: string[] = undefined
+    couponCodes?: string[] = undefined
+    referralCode?: string = undefined
+    loyaltyCards?: string[] = undefined
+    state?: string = undefined
+    cartItems?:  CartItem[] = undefined
+    additionalCosts?: object = undefined
+    identifiers?: string[] = undefined
+    attributes?: object = undefined
 
 }
 
-export interface CartItem {
+export class CartItem {
 
-    name: string
+    name?: string
     sku?: string
     quantity?: number
     returnedQuantity?: string
@@ -32,4 +32,15 @@ export interface CartItem {
     length?: string
     position?: string
     attribute?: string
+}
+
+// As requirements are defined these validation methods need to be updated
+// as well.
+export function isCustomerSession(obj: any): boolean {
+    return !!obj.profileId
+}
+
+export function isCustomerSessionRequest(obj: any): boolean {
+    return isCustomerSession(obj.customerSession)
+
 }

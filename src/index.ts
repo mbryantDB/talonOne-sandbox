@@ -1,10 +1,13 @@
 import express, { Express } from 'express'
 import dotenv from 'dotenv'
+
 dotenv.config()
 
-
+const bodyParser = require("body-parser")
 const app: Express = express()
 const port = process.env.PORT
+
+app.use(bodyParser.json())
 
 app.listen(port, () => {
     console.log(`⚡️[server]: Server is running at http://localhost:${port}`)
@@ -20,8 +23,8 @@ const customerProfile = new CustomerProfile()
 
 // Creating endpoint mapping
 //PUT /customer/session
-app.put('/customer/session', customerSession.createOrUpdateSession)
-app.put('/customer/session/reopen', customerSession.reopenSession)
+app.put('/customer/session/:integrationId', customerSession.createOrUpdateSession)
+app.put('/customer/session/:integrationId/reopen', customerSession.reopenSession)
 
 // PUT /customer/profile
-app.put('/customer/profile', customerProfile.createOrUpdateProfile)
+app.put('/customer/profile/:customerId', customerProfile.createOrUpdateProfile)
