@@ -1,5 +1,5 @@
-import CustomerSessionService from "../../service/customer/session"
-import {CustomerSessionRequest} from "../../model/Customer/CustomerSessionRequest"
+import CustomerSessionService from '../../service/customer/session'
+import { CustomerSessionRequest } from '../../model/Customer/CustomerSessionRequest'
 
 // Creates the web request through an object.
 //
@@ -7,14 +7,18 @@ import {CustomerSessionRequest} from "../../model/Customer/CustomerSessionReques
 const sessionService = new CustomerSessionService()
 
 export default class CustomerSessionFacade {
+  // CustomerSession is being mocked above.
+  async createOrUpdateSession(
+    integrationId: string,
+    customerSession: CustomerSessionRequest
+  ): Promise<any> {
+    return await sessionService.createOrUpdateSession(
+      integrationId,
+      customerSession
+    )
+  }
 
-    // CustomerSession is being mocked above.
-    async createOrUpdateSession(integrationId: string, customerSession: CustomerSessionRequest): Promise<any> {
-        return await sessionService.createOrUpdateSession(integrationId, customerSession)
-    }
-
-    async reopenCustomerSession(integrationId :string): Promise<any> {
-        return await sessionService.reopenCustomerSession(integrationId)
-    }
-
+  async reopenCustomerSession(integrationId: string): Promise<any> {
+    return await sessionService.reopenCustomerSession(integrationId)
+  }
 }
