@@ -9,7 +9,6 @@ export default class CustomerProfileService {
             'dry': true // Boolean | (Only works when `runRuleEngine=true`) Indicates whether to persist the changes. Changes are ignored when `dry=true`.  When set to `true`, you can use the `evaluableCampaignIds` body property to select specific campaigns to run.
         }
 
-        console.log(`Creating or updating customer profile`)
         return integrationApi
             .updateCustomerProfileV2(customerId, customerProfile, opts)
             .then(handleData)

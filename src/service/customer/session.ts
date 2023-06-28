@@ -6,8 +6,6 @@ export default class CustomerSessionService {
     // Create session
     async createOrUpdateSession(integrationId: string, customerSession: any): Promise<any> {
 
-        console.log('Creating customer session with Integration API')
-
         return integrationApi
             .updateCustomerSessionV2(integrationId, customerSession)
             .then(handleData)
@@ -15,8 +13,6 @@ export default class CustomerSessionService {
     }
 
     async reopenCustomerSession(customerSessionId: string): Promise<any> {
-
-        console.log(`Reopening customerSession: ${customerSessionId}`)
 
         return integrationApi
             .reopenCustomerSession(customerSessionId)
