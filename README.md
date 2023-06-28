@@ -42,7 +42,8 @@ Finally, you need to build the module:
 
 `npm run build`
 
-*Ref:* [Talon One Installation Docs](https://github.com/mbryantDB/talonOne-sandbox.git)
+*Ref:* [Talon One Installation Docs](https://github.com/talon-one/talon_one.js/tree/master#installation)
+*Ref:* [Talon.One SDK IntegrationAPI Docs ](https://github.com/talon-one/talon_one.js/blob/master/docs/IntegrationApi.md)
 
 Result in Campaign Manager:
 
