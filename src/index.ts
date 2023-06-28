@@ -11,7 +11,8 @@ const allowedOrigins = [
     'http://localhost:3000'
 ]
 const options: cors.CorsOptions = {
-    origin: allowedOrigins
+    origin: allowedOrigins,
+    optionsSuccessStatus: 200
 }
 
 app.use(cors(options))
@@ -33,6 +34,5 @@ app.use('/customer/profile', customerProfileRouter)
 
 
 app.get('/', (req, res) => {
-    console.trace('Health Check')
-    return res.sendStatus(200)
+    return res.status(200).json({ message: 'Health Check', state: 'UP' })
 })
