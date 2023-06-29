@@ -10,4 +10,10 @@ export default class CustomerProfileFacade {
   ): Promise<any> {
     return await profileService.createOrUpdateProfile(customerId, payload)
   }
+
+  async getCustomerData(
+    customerId: string
+  ): Promise<any> {
+    return await profileService.getCustomerData(customerId)
+  }
 }

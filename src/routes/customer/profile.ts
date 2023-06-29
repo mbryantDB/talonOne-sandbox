@@ -9,6 +9,8 @@ import { reduceBodyToObject } from '../../util/reduceBodyToObject'
 const customerProfileRouter = Router()
 const profileFacade = new CustomerProfileFacade()
 
+// PUT Create Or Update Profile
+// Effect Responses: [Talon.One 'effect' response docs](https://docs.talon.one/docs/dev/integration-api/api-effects)
 customerProfileRouter.put(
   '/:customerId',
   async (req: Request, res: Response): Promise<any> => {
@@ -30,6 +32,23 @@ customerProfileRouter.put(
 
     profileFacade
       .createOrUpdateProfile(customerId, reduced)
+      .then((data: any) => res.send(data))
+      .catch((err: Error) => res.status(400).send(err))
+  }
+)
+
+// GET List Customer Data
+customerProfileRouter.get(
+  '/:customerId',
+  async (req: Request, res: Response): Promise<any> => {
+    const { customerId } = req.params
+
+    if (!customerId) {
+      res.status(400).json({ message: "No param: 'customerId'" })
+    }
+
+    profileFacade
+      .getCustomerData(customerId)
       .then((data: any) => res.send(data))
       .catch((err: Error) => res.status(400).send(err))
   }

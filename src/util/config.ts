@@ -6,6 +6,7 @@ const config = {
   TALON_URL: process.env.TALON_URL,
   INTEGRATION_API_KEY: process.env.INTEGRATION_API_KEY,
   MANAGEMENT_API_KEY: process.env.MANAGEMENT_API_KEY,
+  DRY_RUN: process.env?.DRY_RUN ? process.env.DRY_RUN : true
 }
 
 export default config
