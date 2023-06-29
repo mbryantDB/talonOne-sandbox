@@ -1,5 +1,6 @@
 import CustomerProfileService from '../../service/customer/profile'
 import { CustomerProfileRequest } from '../../model/Customer/CustomerProfileRequest'
+import { CustomerDataOptions } from '../../routes/customer/profile'
 
 const profileService = new CustomerProfileService()
 
@@ -12,8 +13,9 @@ export default class CustomerProfileFacade {
   }
 
   async getCustomerData(
-    customerId: string
+    customerId: string,
+    customerOptions: CustomerDataOptions
   ): Promise<any> {
-    return await profileService.getCustomerData(customerId)
+    return await profileService.getCustomerData(customerId, customerOptions)
   }
 }
